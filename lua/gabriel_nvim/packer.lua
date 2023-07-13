@@ -21,6 +21,14 @@ return require('packer').startup(function(use)
 	  end
   })
 
+  use({
+	  'mhartington/oceanic-next',
+	  as = 'oceanic-next',
+	  config = function()
+		  vim.cmd('colorscheme OceanicNext')
+	  end
+  })
+
    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
    use('theprimeagen/harpoon')
    use('mbbill/undotree')
