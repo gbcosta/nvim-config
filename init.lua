@@ -1,1 +1,1 @@
-require("gabriel_nvim")
+require("config")
