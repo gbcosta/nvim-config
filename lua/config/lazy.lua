@@ -12,12 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "vim-airline/vim-airline",
+    "folke/which-key.nvim",
 
     "folke/neodev.nvim",
 
     {
-       "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
     },
 
     {'theprimeagen/harpoon'},
@@ -32,26 +37,23 @@ require("lazy").setup({
 
     {
         'mhartington/oceanic-next',
-        name = 'oceanic-next',
-        config = function()
-                vim.cmd('colorscheme OceanicNext')
-        end
+        name = 'OceanicNext',
     },
 
+    {
+        "diegoulloao/neofusion.nvim", 
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
+    },
 
     {
         "iamcco/markdown-preview.nvim",
         build = function() vim.fn["mkdp#util#install"]() end,
-    },
-
-    {
-        "roobert/tailwindcss-colorizer-cmp.nvim",
-        -- optionally, override the default options:
-        config = function()
-            require("tailwindcss-colorizer-cmp").setup({
-                color_square_width = 2,
-            })
-        end
     },
 
     {
@@ -62,46 +64,25 @@ require("lazy").setup({
             {'neovim/nvim-lspconfig'},             -- Required
             {                                      -- Optional
                 'williamboman/mason.nvim',
-                build = function()
+                run = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-	   -- Autocompletion
-	   {'hrsh7th/nvim-cmp'},     -- Required
-	   {'hrsh7th/cmp-nvim-lsp'}, -- Required
-	   {'L3MON4D3/LuaSnip'},     -- Required
-	   {'hrsh7th/cmp-buffer'},
-	   {'hrsh7th/cmp-path'},
-
-
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
         }
     },
-
     {
-        {
-            "folke/lazydev.nvim",
-            ft = "lua", -- only load on lua files
-            opts = {
-                library = {
-                    -- See the configuration section for more details
-                    -- Load luvit types when the `vim.uv` word is found
-                    { path = "luvit-meta/library", words = { "vim%.uv" } },
-                },
-            },
-        },
-        { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-        { -- optional completion source for require statements and module annotations
-            "hrsh7th/nvim-cmp",
-            opts = function(_, opts)
-                opts.sources = opts.sources or {}
-                table.insert(opts.sources, {
-                    name = "lazydev",
-                    group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-                })
-            end,
-        },
-    }
+        'stevearc/conform.nvim',
+    },
+    { 
+        'onsails/lspkind.nvim' 
+    },
 
 })

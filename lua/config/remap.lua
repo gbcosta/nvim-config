@@ -20,9 +20,8 @@ vim.keymap.set("n", "<leader>)", "di(i")
 vim.keymap.set("n", "<leader>(", "di)i")
 vim.keymap.set("n", "<leader>}", "di{i")
 vim.keymap.set("n", "<leader>{", "di}i")
-
-vim.keymap.set("n", "cx", "xi")
-
+vim.keymap.set("n", "<leader>]", "di[i")
+vim.keymap.set("n", "<leader>[", "di]i")
 
 vim.keymap.set("v", "<leader>h", "_")
 vim.keymap.set("v", "<leader>l", "$")
@@ -30,3 +29,5 @@ vim.keymap.set("v", "<leader>j", "G")
 vim.keymap.set("v", "<leader>k", "gg")
 
 vim.keymap.set("n", "<leader>f", ":e %:h/")
+vim.keymap.set("n", "<leader>v", "<C-v>")
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })

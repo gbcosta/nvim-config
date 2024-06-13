@@ -1,5 +1,4 @@
 function updateColor(color)
-
     color = color or "OceanicNext"
     vim.cmd.colorscheme(color)
 
@@ -9,7 +8,6 @@ function updateColor(color)
     vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true, bg = "none" })
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#fa61d6', bold=true, bg = "none" })
     vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg='white', bold=true, bg = "none" })
-
 end
 
-updateColor()
+updateColor("cyberdream")
