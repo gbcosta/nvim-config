@@ -53,6 +53,10 @@ require("lazy").setup({
 		priority = 1000,
 	},
 
+	{ "EdenEast/nightfox.nvim" }, -- lazy
+
+	{ "rebelot/kanagawa.nvim" },
+
 	{
 		"iamcco/markdown-preview.nvim",
 		build = function()
