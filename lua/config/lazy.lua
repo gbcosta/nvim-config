@@ -63,6 +63,17 @@ require("lazy").setup({
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
+    {
+         "luckasRanarison/tailwind-tools.nvim",
+         name = "tailwind-tools",
+        build = ":UpdateRemotePlugins",
+  odependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-telescope/telescope.nvim", -- optional
+    "neovim/nvim-lspconfig", -- optional
+  },
+  opts = {} -- your configuration
+},
 
 	{
 		"VonHeikemen/lsp-zero.nvim",

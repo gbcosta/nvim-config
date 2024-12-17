@@ -15,6 +15,15 @@ local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_action = lsp.cmp_action()
 
+require'lspconfig'.tailwindcss.setup{
+    filetypes = {"html", "css", "javascript", "typescript"},
+    root_dir = require('lspconfig').util.root_pattern('tailwind.config.js', 'package.json', '.git')
+}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+require('lspconfig').gdscript.setup(capabilities)
+
 cmp.setup({
 	mapping = {
 		-- `Enter` key to confirm completion
